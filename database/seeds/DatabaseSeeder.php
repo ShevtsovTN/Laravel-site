@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Listing;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(ListingEnSeeder::class);
+        //$this->call(ReviewSeeder::class);
+        //$this->call(ListingEnSeeder::class);
+        //$this->call(ListingEsSeeder::class);
+        //$this->call(ListingRuSeeder::class);
     }
 }

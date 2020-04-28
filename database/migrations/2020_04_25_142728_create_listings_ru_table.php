@@ -20,11 +20,11 @@ class CreateListingsRuTable extends Migration
             $table->string('description_title', 100);
             $table->longText('description');             // Описание
             $table->string('address', 100);       // Адрес
-            $table->float('amount',7);             // Стоимость
-            $table->float('area', 3, 2);    // Площадь
+            $table->float('amount',9);             // Стоимость
+            $table->float('area', 5, 2);    // Площадь
             $table->integer('rooms');                    // Кол-во комнат
             $table->integer('baths');                    // Кол-во ванных комнат
-            $table->json('photos');                      // Строка с фотографиями
+            $table->json('photos')->nullable();                      // Строка с фотографиями
             $table->json('options');                     // Строка с опциями
             $table->string('type', 9);            // Аренда или Продажа
             $table->timestamps();

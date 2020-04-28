@@ -9,7 +9,6 @@ $factory->define(Listing::class, function (Faker $faker) {
 
     return [
         'listing_id' => rand(700000, 999999),
-        'author' => $faker->name,
         'address' => $faker->address,
         'amount' => rand(200000, 700000),
         'area' => rand(45, 90),
@@ -18,7 +17,7 @@ $factory->define(Listing::class, function (Faker $faker) {
         'type' => 'For Sale',
         'options' => json_encode(['Gated Community', 'Window Shutters', 'Heated Floors', 'Private Patio']),
         'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),
-        'description_title' => $faker->sentence($nbWords = 15, $variableNbWords = true),
+        'description_title' => $faker->sentence($nbWords = 10, $variableNbWords = true),
         'description' => $faker->text,
         'created_at' => $faker->date(),
         'updated_at' => null
