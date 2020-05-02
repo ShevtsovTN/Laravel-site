@@ -2,10 +2,10 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\Listing;
+use App\Models\ListingRu;
 use Faker\Generator as Faker;
 
-$factory->define(Listing::class, function (Faker $faker) {
+$factory->define(ListingRu::class, function (Faker $faker) {
 
     return [
         'listing_id' => rand(700000, 999999),
@@ -19,6 +19,8 @@ $factory->define(Listing::class, function (Faker $faker) {
         'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),
         'description_title' => $faker->sentence($nbWords = 8, $variableNbWords = true),
         'description' => $faker->text,
+        'cities' => 'Benedorm',
+        'categories' => 'Apartment',
         'created_at' => $faker->date(),
         'updated_at' => null
     ];

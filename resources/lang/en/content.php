@@ -43,7 +43,7 @@ return [
         2 => 'Find your perfect house',
         3 => 'About us',
         4 => 'Listings',
-        5 => 'Listing details',
+        5 => 'ListingEn details',
         6 => 'Blog',
         7 => 'Blog details',
         8 => 'Contact',

@@ -25,6 +25,9 @@ class CreateListingsEsTable extends Migration
             $table->integer('rooms');                    // Кол-во комнат
             $table->integer('baths');                    // Кол-во ванных комнат
             $table->json('photos')->nullable();                      // Строка с фотографиями
+            $table->string('photo_title')->nullable();
+            $table->string('cities');
+            $table->string('categories');
             $table->json('options');                     // Строка с опциями
             $table->string('type', 9);            // Аренда или Продажа
             $table->timestamps();

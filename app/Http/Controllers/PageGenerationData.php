@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
-use App\Models\Listing;
+use App\Models\ListingEn;
 use App\Models\Review;
 use Illuminate\Http\Request;
 
@@ -21,12 +21,12 @@ class PageGenerationData extends Controller
     }
 
     /**
-     * Listing page generation method
+     * ListingEn page generation method
      *
-     * @param Listing $ad
+     * @param ListingEn $ad
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function generateListing(Listing $ad)
+    public function generateListing(ListingEn $ad)
     {
         return view('listening.ad', compact('ad'));
     }
@@ -41,9 +41,22 @@ class PageGenerationData extends Controller
         $reviews = Review::orderBy('created_at', 'desc')
             ->take(5)
             ->get();
-        /*$listingIndex = Listing::select('')->orderBy('created_at', 'desc')
+        $listingsData = ListingEn::select(
+                'title',
+                'description_title',
+                'amount',
+                'type',
+                'cities',
+                'rooms',
+                'baths',
+                'area',
+                'photo_title',
+                'categories',
+                'address'
+        )
+            ->orderBy('created_at', 'desc')
             ->take(6)
-            ->get();*/
-        return view('home', compact('reviews'));
+            ->get();
+        return view('home', compact('reviews', 'listingsData'));
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Listing;
+use App\Models\ListingEs;
 use Illuminate\Database\Seeder;
 
 class ListingEsSeeder extends Seeder
@@ -12,6 +12,6 @@ class ListingEsSeeder extends Seeder
      */
     public function run()
     {
-        factory(Listing::class, 18)->create();
+        factory(ListingEs::class, 18)->create();
     }
 }

@@ -238,7 +238,7 @@
     </div>
     <!-- ##### Advance Search Area End ##### -->
 
-    <!-- ##### Listing Content Wrapper Area Start ##### -->
+    <!-- ##### ListingEn Content Wrapper Area Start ##### -->
     <section class="listings-content-wrapper section-padding-100">
         <div class="container">
             <div class="row">
@@ -641,5 +641,5 @@
             </div>
         </div>
     </section>
-    <!-- ##### Listing Content Wrapper Area End ##### -->
+    <!-- ##### ListingEn Content Wrapper Area End ##### -->
 @endsection
