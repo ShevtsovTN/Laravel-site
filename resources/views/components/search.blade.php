@@ -1,5 +1,4 @@
-@extends('home')
-@section('form_search')
+
     <!-- ##### Advance Search Area Start ##### -->
     <div class="south-search-area">
         <div class="container">
@@ -220,4 +219,4 @@
         </div>
     </div>
     <!-- ##### Advance Search Area End ##### -->
-@endsection
+

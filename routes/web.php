@@ -24,9 +24,7 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
-Route::get('/listings', function () {
-    return view('listening.ads');
-});
+Route::get('/listings', 'PageGenerationData@generateListings');
 
 Route::get('/blog', function () {
     return view('blog.blogs');

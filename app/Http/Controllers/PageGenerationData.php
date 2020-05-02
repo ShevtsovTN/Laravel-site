@@ -59,4 +59,24 @@ class PageGenerationData extends Controller
             ->get();
         return view('home', compact('reviews', 'listingsData'));
     }
+
+    public function generateListings()
+    {
+        $listingsData = ListingEn::select(
+            'title',
+            'description_title',
+            'amount',
+            'type',
+            'cities',
+            'rooms',
+            'baths',
+            'area',
+            'photo_title',
+            'categories',
+            'address'
+        )
+            ->orderBy('created_at', 'desc')
+            ->paginate(6);
+        return view('listening.ads', compact('listingsData'));
+    }
 }
