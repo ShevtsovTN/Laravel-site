@@ -33,3 +33,5 @@ Route::get('/blog', function () {
 Route::get('/listings/{listing}', 'PageGenerationData@generateListing');
 
 Route::get('/blogs/{blog}', 'PageGenerationData@generateBlog');
+
+Route::get('/form/search', 'FormController@searchListenings');

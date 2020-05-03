@@ -180,8 +180,12 @@
             slide: function (event, ui) {
                 var result = ui.values[0] + unit + ' - ' + ui.values[1] + unit;
                 t.closest('.slider-range').find('.range').html(result);
+                t.closest('.slider-range').find('.to').attr('value', ui.values[1]);
+                t.closest('.slider-range').find('.from').attr('value', ui.values[0]);
             }
         });
     })
+
+    // :: Slider Range Data to Input
 
 })(jQuery);
