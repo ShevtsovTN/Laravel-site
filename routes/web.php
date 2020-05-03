@@ -34,4 +34,4 @@ Route::get('/listings/{listing}', 'PageGenerationData@generateListing');
 
 Route::get('/blogs/{blog}', 'PageGenerationData@generateBlog');
 
-Route::get('/form/search', 'FormController@searchListenings');
+Route::post('/listings', 'FormController@searchListenings')->name('search_form');

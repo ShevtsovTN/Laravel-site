@@ -1,5 +1,4 @@
 
-    <!-- ##### Advance Search Area Start ##### -->
     <div class="south-search-area">
         <div class="container">
             <div class="row">
@@ -10,19 +9,20 @@
                             <p>@lang('content.components_search.title')</p>
                         </div>
                         <!-- Search Form -->
-                        <form action="./listings" method="get" id="advanceSearch">
+                        <form action="{{route('search_form')}}" method="post" id="advanceSearch">
+                            @csrf
                             <div class="row">
 
-                                <div class="col-12 col-md-4 col-lg-3">
+                            <!--<div class="col-12 col-md-4 col-lg-3">
                                     <div class="form-group">
                                         <input type="input" class="form-control" name="keyword" placeholder="@lang('content.components_search.keyword')">
                                     </div>
-                                </div>
+                                </div>-->
 
-                                <div class="col-12 col-md-4 col-lg-3">
+                                <div class="col-12 col-md-4 col-lg-4">
                                     <div class="form-group">
                                         <select class="form-control" id="cities" name="cities">
-                                            <option>@lang('content.components_search.cities.4')</option>
+                                            <option value="0">@lang('content.components_search.cities.4')</option>
                                             <option>@lang('content.components_search.cities.0')</option>
                                             <option>@lang('content.components_search.cities.1')</option>
                                             <option>@lang('content.components_search.cities.2')</option>
@@ -31,10 +31,10 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-md-4 col-lg-3">
+                                <div class="col-12 col-md-4 col-lg-4">
                                     <div class="form-group">
-                                        <select class="form-control" id="catagories" name="catagories">
-                                            <option>@lang('content.components_search.categories.0')</option>
+                                        <select class="form-control" id="categories" name="categories">
+                                            <option value="0">@lang('content.components_search.categories.0')</option>
                                             <option>@lang('content.components_search.categories.1')</option>
                                             <option>@lang('content.components_search.categories.2')</option>
                                             <option>@lang('content.components_search.categories.3')</option>
@@ -44,10 +44,10 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 col-md-4 col-lg-3">
+                                <div class="col-12 col-md-4 col-lg-4">
                                     <div class="form-group">
                                         <select class="form-control" id="offers" name="offers">
-                                            <option>@lang('content.components_search.offers.0')</option>
+                                            <option value="0">@lang('content.components_search.offers.0')</option>
                                             <option>100% @lang('content.components_search.offers.1')</option>
                                             <option>75% @lang('content.components_search.offers.1')</option>
                                             <option>50% @lang('content.components_search.offers.1')</option>
@@ -59,8 +59,8 @@
 
                                 <div class="col-12 col-md-4 col-xl-3">
                                     <div class="form-group">
-                                        <select class="form-control" id="types" name="types">
-                                            <option>@lang('content.components_search.actions.2')</option>
+                                        <select class="form-control" id="types" name="type">
+                                            <option value="0">@lang('content.components_search.actions.2')</option>
                                             <option>@lang('content.components_search.actions.0')</option>
                                             <option>@lang('content.components_search.actions.1')</option>
                                         </select>
@@ -70,8 +70,8 @@
 
                                 <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
-                                        <select class="form-control" id="bedrooms" name="bedrooms">
-                                            <option>@lang('content.components_search.rooms.0')</option>
+                                        <select class="form-control" id="rooms" name="rooms">
+                                            <option value="0">@lang('content.components_search.rooms.0')</option>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -83,8 +83,8 @@
 
                                 <div class="col-12 col-md-4 col-xl-2">
                                     <div class="form-group">
-                                        <select class="form-control" id="bathrooms" name="bathrooms">
-                                            <option>@lang('content.components_search.rooms.1')</option>
+                                        <select class="form-control" id="baths" name="baths">
+                                            <option value="0">@lang('content.components_search.rooms.1')</option>
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -97,14 +97,14 @@
                                 <div class="col-12 col-md-8 col-lg-12 col-xl-5 d-flex">
                                     <!-- Space Range -->
                                     <div class="slider-range">
-                                        <div data-min="120" data-max="820" data-unit=" sq. ft" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="120" data-value-max="820">
+                                        <div data-min="20" data-max="820" data-unit=" sq. m" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="20" data-value-max="820">
                                             <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
                                             <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
                                             <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
                                         </div>
-                                        <input type="hidden" class="from" name="area_from" id="area_from" value="">
-                                        <input type="hidden" class="to" name="area_to" id="area_to" value="">
-                                        <div class="range">120 @lang('content.components_search.units_measuring.0') - 820 @lang('content.components_search.units_measuring.0')</div>
+                                        <input type="hidden" class="from" name="area_from" id="area_from" value="20">
+                                        <input type="hidden" class="to" name="area_to" id="area_to" value="820">
+                                        <div class="range">20 @lang('content.components_search.units_measuring.0') - 820 @lang('content.components_search.units_measuring.0')</div>
                                     </div>
 
                                     <!-- Distance Range -->
@@ -114,8 +114,8 @@
                                             <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
                                             <span class="ui-slider-handle ui-state-default ui-corner-all" tabindex="0"></span>
                                         </div>
-                                        <input type="hidden" class="from" name="amount_from" id="amount_from" value="">
-                                        <input type="hidden" class="to" name="amount_to" id="amount_to" value="">
+                                        <input type="hidden" class="from" name="amount_from" id="amount_from" value="10">
+                                        <input type="hidden" class="to" name="amount_to" id="amount_to" value="1300">
                                         <div class="range">10 @lang('content.components_search.units_measuring.1') - 1300 @lang('content.components_search.units_measuring.1')</div>
                                     </div>
                                 </div>
@@ -222,5 +222,5 @@
             </div>
         </div>
     </div>
-    <!-- ##### Advance Search Area End ##### -->
+
 
