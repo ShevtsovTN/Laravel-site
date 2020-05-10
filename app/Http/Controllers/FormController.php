@@ -14,41 +14,66 @@ class FormController extends Controller
     public function searchListenings(Request $request)
     {
         if (!empty($request['_token'])) {
-            $whereArr = [];
-            //dd($request->all());
+            $where = ['where' => [], 'whereBetween' => []];
             foreach ($request->all() as $index => $item) {
-                if ($index != '_token') {
-                    if ($request[$index] !== 0) {
-                        $whereArr = array_merge($whereArr, [$index => $item]);
-                    }
-                } else {
-                    continue;
+                switch ($index) {
+                    case 'amount_to':
+                    case 'amount_from':
+                    case 'area_to':
+                    case 'area_from':
+                        $where['whereBetween'] = array_merge($where['whereBetween'], [$index => $item]);
+                        break;
+                    case '_token':
+                        break;
+                    default:
+                        if ($item != '0') {
+                            $where['where'][] = [$index, $item];
+                            break;
+                        } else {
+                            break;
+                        }
                 }
             }
-            //dd($whereArr);
-            $listingsData = ListingEn::select(
-                'title',
-                'description_title',
-                'amount',
-                'type',
-                'cities',
-                'rooms',
-                'baths',
-                'area',
-                'photo_title',
-                'categories',
-                'address'
-            )
-                ->where([
-                    ['cities', $whereArr['cities']],
-                    ['categories', $whereArr['categories']],
-                    ['type', $whereArr['type']],
-                    ['rooms', $whereArr['rooms']],
-                    ['baths', $whereArr['baths']]
-                ])
-                ->whereBetween('area', [$whereArr['area_from'], $whereArr['area_to']])
-                ->orderBy('created_at', 'desc')
-                ->paginate(6);
+            //dd($where);
+            if (!empty($where['where'])) {
+                $listingsData = ListingEn::select(
+                    'title',
+                    'description_title',
+                    'amount',
+                    'type',
+                    'cities',
+                    'rooms',
+                    'baths',
+                    'area',
+                    'photo_title',
+                    'categories',
+                    'address'
+                )
+                    ->where($where['where'])
+                    ->whereBetween('area', [$where['whereBetween']['area_from'], $where['whereBetween']['area_to']])
+                    ->whereBetween('amount', [$where['whereBetween']['amount_from'] * 1000, $where['whereBetween']['amount_to'] * 1000])
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(6);
+            } else {
+                $listingsData = ListingEn::select(
+                    'title',
+                    'description_title',
+                    'amount',
+                    'type',
+                    'cities',
+                    'rooms',
+                    'baths',
+                    'area',
+                    'photo_title',
+                    'categories',
+                    'address'
+                )
+                    ->whereBetween('area', [$where['whereBetween']['area_from'], $where['whereBetween']['area_to']])
+                    ->whereBetween('amount', [$where['whereBetween']['amount_from'] * 1000, $where['whereBetween']['amount_to'] * 1000])
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(6);
+            }
+
         }
         return view('listening.ads', compact('listingsData'));
     }

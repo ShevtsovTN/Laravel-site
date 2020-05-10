@@ -46,7 +46,7 @@
 
                                 <div class="col-12 col-md-4 col-lg-4">
                                     <div class="form-group">
-                                        <select class="form-control" id="offers" name="offers">
+                                        <select class="form-control" id="offers">
                                             <option value="0">@lang('content.components_search.offers.0')</option>
                                             <option>100% @lang('content.components_search.offers.1')</option>
                                             <option>75% @lang('content.components_search.offers.1')</option>
