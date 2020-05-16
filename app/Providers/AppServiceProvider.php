@@ -23,6 +23,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        switch (strtolower(request()->getPreferredLanguage())) {
+            case 'ru_ru':
+                $this->app->setLocale('ru');
+                break;
+            case 'en_us':
+            case 'en_gb':
+                $this->app->setLocale('en');
+                break;
+            default:
+                $this->app->setLocale('es');
+                break;
+        }
     }
 }
