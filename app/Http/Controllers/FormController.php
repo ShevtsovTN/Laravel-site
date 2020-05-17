@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ListingEn;
+use App\Models\Listings;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
@@ -13,7 +13,6 @@ class FormController extends Controller
      */
     public function searchListenings(Request $request)
     {
-        //dd(substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
         if (!empty($request['_token'])) {
             $where = ['where' => [], 'whereBetween' => []];
             foreach ($request->all() as $index => $item) {
@@ -36,14 +35,14 @@ class FormController extends Controller
                 }
             }
             if (!empty($where['where'])) {
-                $listingsData = ListingEn::select('title', 'description_title', 'amount', 'type', 'cities', 'rooms', 'baths', 'area', 'photo_title', 'categories', 'address')
+                $listingsData = Listings::select('title', 'description_title', 'amount', 'type', 'cities', 'rooms', 'baths', 'area', 'photo_title', 'categories', 'address')
                     ->where($where['where'])
                     ->whereBetween('area', [$where['whereBetween']['area_from'], $where['whereBetween']['area_to']])
                     ->whereBetween('amount', [$where['whereBetween']['amount_from'] * 1000, $where['whereBetween']['amount_to'] * 1000])
                     ->orderBy('created_at', 'desc')
                     ->paginate(6);
             } else {
-                $listingsData = ListingEn::select('title', 'description_title', 'amount', 'type', 'cities', 'rooms', 'baths', 'area', 'photo_title', 'categories', 'address')
+                $listingsData = Listings::select('title', 'description_title', 'amount', 'type', 'cities', 'rooms', 'baths', 'area', 'photo_title', 'categories', 'address')
                     ->whereBetween('area', [$where['whereBetween']['area_from'], $where['whereBetween']['area_to']])
                     ->whereBetween('amount', [$where['whereBetween']['amount_from'] * 1000, $where['whereBetween']['amount_to'] * 1000])
                     ->orderBy('created_at', 'desc')

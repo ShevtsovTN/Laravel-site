@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ListingEs extends Model
+class Listing_ru extends Model
 {
-    protected $table = 'listings_es';
+    protected $table = 'listings_ru';
 }
+
