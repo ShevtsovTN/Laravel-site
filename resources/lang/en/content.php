@@ -43,7 +43,7 @@ return [
         2 => 'Find your perfect house',
         3 => 'About us',
         4 => 'Listings',
-        5 => 'ListingEn details',
+        5 => 'Listing details',
         6 => 'Blog',
         7 => 'Blog details',
         8 => 'Contact',
@@ -100,7 +100,7 @@ return [
             1 => 'Bathrooms'
         ],
         'units_measuring' => [
-            0 => 'sq. ft',
+            0 => 'sq. m',
             1 => 'mil'
         ],
         'actions' => [
