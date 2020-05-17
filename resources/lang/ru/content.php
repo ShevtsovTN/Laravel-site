@@ -10,13 +10,13 @@ return [
         ],
         'footer' => [
             0 => 'О НАС',
-            1 => 'HOURS',
+            1 => 'РАСПИСАНИЕ',
             2 => 'ПОЛЕЗНЫЕ ССЫЛКИ',
             3 => 'FEATURED PROPERTIES',
             'description' => 'Integer nec bibendum lacus. Suspen disse dictum enim sit amet libero males uada feugiat. Praesent malesuada.',
             'address' => 'Main Str. no 45-46, b3, 56832, Los Angeles, CA',
             'schedule' => [
-                0 => 'Понедельник - Пятница',
+                0 => 'Пн - Пт',
                 1 => 'Суббота',
                 2 => 'Воскресенье',
                 3 => 'Закрыто'

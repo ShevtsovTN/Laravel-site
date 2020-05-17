@@ -43,7 +43,7 @@
                             </div>
                             <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odiomattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Curabitur rhoncus auctor eleifend.</p>
                             <!-- Read More btn -->
-                            <a href="#" class="btn south-btn">Read More</a>
+                            <a href="#" class="btn south-btn">@lang('content.blogs.buttons.0')</a>
                         </div>
                     </div>
 
@@ -67,7 +67,7 @@
                             </div>
                             <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odiomattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Curabitur rhoncus auctor eleifend.</p>
                             <!-- Read More btn -->
-                            <a href="#" class="btn south-btn">Read More</a>
+                            <a href="#" class="btn south-btn">@lang('content.blogs.buttons.0')</a>
                         </div>
                     </div>
 
@@ -91,7 +91,7 @@
                             </div>
                             <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odiomattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Curabitur rhoncus auctor eleifend.</p>
                             <!-- Read More btn -->
-                            <a href="#" class="btn south-btn">Read More</a>
+                            <a href="#" class="btn south-btn">@lang('content.blogs.buttons.0')</a>
                         </div>
                     </div>
                 </div>
