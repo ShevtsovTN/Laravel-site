@@ -55,7 +55,7 @@
                                 <input type="text" class="form-control" name="text" id="contact-name" placeholder="@lang('content.contacts.contact_form.0')">
                             </div>
                             <div class="form-group">
-                                <input type="number" class="form-control" name="number" id="contact-number" placeholder="@lang('content.contacts.contact_form.1')">
+                                <input type="tel" class="form-control" name="phone" id="contact-number" placeholder="@lang('content.contacts.contact_form.1')">
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" id="contact-email" placeholder="@lang('content.contacts.contact_form.2')">

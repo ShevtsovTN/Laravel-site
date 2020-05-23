@@ -20,9 +20,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', 'mailController@sendMail');
 
 Route::get('/listings', 'PageGenerationData@generateListings');
 
@@ -35,3 +33,5 @@ Route::get('/listings/{listing}', 'PageGenerationData@generateListing');
 Route::get('/blogs/{blog}', 'PageGenerationData@generateBlog');
 
 Route::post('/listings', 'FormController@searchListenings')->name('search_form');
+
+
