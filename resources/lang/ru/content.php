@@ -74,7 +74,7 @@ return [
         ]
     ],
     'components_search' => [
-        'title' => 'SEARCH FOR YOUR HOME',
+        'title' => 'ПОИСК НЕДВИЖИМОСТИ',
         'cities' => [
             0 => 'Аликанте',
             1 => 'Бенидорм',
