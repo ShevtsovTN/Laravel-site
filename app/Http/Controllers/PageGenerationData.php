@@ -79,4 +79,9 @@ class PageGenerationData extends Controller
             ->paginate(6);
         return view('listening.ads', compact('listingsData'));
     }
+
+    public function generateContacts()
+    {
+        return view('contact');
+    }
 }

@@ -51,8 +51,9 @@
                 <div class="col-12 col-lg-8">
                     <div class="contact-form">
                         <form action="#" method="post">
+                            @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" name="text" id="contact-name" placeholder="@lang('content.contacts.contact_form.0')">
+                                <input type="text" class="form-control" name="name" id="contact-name" placeholder="@lang('content.contacts.contact_form.0')">
                             </div>
                             <div class="form-group">
                                 <input type="tel" class="form-control" name="phone" id="contact-number" placeholder="@lang('content.contacts.contact_form.1')">

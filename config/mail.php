@@ -83,8 +83,12 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'test.realestate2020@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'real_estate_benidorm'),
+    ],
+    'reply_to' => [
+        'address' => env('MAIL_FROM_ADDRESS', 'test.realestate2020@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'real_estate_benidorm'),
     ],
 
     /*
@@ -104,6 +108,5 @@ return [
         'paths' => [
             resource_path('views/vendor/mail'),
         ],
-    ],
-
+    ]
 ];

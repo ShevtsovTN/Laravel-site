@@ -20,18 +20,17 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/contact', 'mailController@sendMail');
+Route::get('/contact', 'PageGenerationData@generateContacts');
+Route::post('/contact', 'MailSendController@sendMail');
 
-Route::get('/listings', 'PageGenerationData@generateListings');
+
 
 Route::get('/blog', function () {
     return view('blog.blogs');
 });
-
-Route::get('/listings/{listing}', 'PageGenerationData@generateListing');
-
 Route::get('/blogs/{blog}', 'PageGenerationData@generateBlog');
 
+Route::get('/listings', 'PageGenerationData@generateListings');
 Route::post('/listings', 'FormController@searchListenings')->name('search_form');
-
+Route::get('/listings/{listing}', 'PageGenerationData@generateListing');
 
