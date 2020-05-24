@@ -22,6 +22,7 @@ Route::get('/about', function () {
 
 Route::get('/contact', 'PageGenerationData@generateContacts');
 Route::post('/contact', 'MailSendController@sendMail');
+//Route::post('contact_form', 'PostController@contactFormSend');
 
 
 

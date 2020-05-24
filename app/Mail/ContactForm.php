@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\Http\Requests\ContactFormRequest;
 use http\Env\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -18,58 +19,58 @@ class ContactForm extends Mailable
      *
      * @var  string
      */
-    public $name;
+    protected $name;
 
     /**
      * Contact Form user phone.
      *
      * @var
      */
-
-    public $phone;
+    protected $phone;
 
     /**
      * Contact Form user email.
      *
      * @var string
      */
-    public $email;
+    protected $email;
 
     /**
      * Contact Form user message.
      *
      * @var string
      */
-    public $message;
+    protected $message;
 
     /**
      * Create a new message instance.
      *
-     * @param FormRequest $request
+     * @param ContactFormRequest $request
      */
-    public function __construct(FormRequest $request)
+    public function __construct(ContactFormRequest $request = null)
     {
         $this->name = $request->name;
         $this->phone = $request->phone;
         $this->email = $request->email;
         $this->message = $request->message;
+        $this->to = [['address' => env('MAIL_TO_ADDRESS'), 'name' => env('MAIL_TO_ADDRESS')]];
+        $this->subject = 'Сообщение формы обратной связи сайта "' . config('app.name') . '"';
     }
 
     /**
      * Build the message.
      *
-     * @return $this
+     * @return ContactForm
      */
     public function build()
     {
-
         $data = [
             'name' => $this->name,
             'phone' => $this->phone,
             'email' => $this->email,
             'message' => $this->message
         ];
-        dd($data);
-        //return $this->view('emails.email' , compact('data'));
+        //dd($data);
+        return $this->markdown('emails.email', compact('data'));
     }
 }
