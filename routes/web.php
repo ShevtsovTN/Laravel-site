@@ -26,9 +26,10 @@ Route::post('/contact', 'MailSendController@sendMail');
 Route::get('/blog', function () {
     return view('blog.blogs');
 });
+
 Route::get('/blogs/{blog}', 'PageGenerationData@generateBlog');
 
 Route::get('/listings', 'PageGenerationData@generateListings');
 Route::post('/listings', 'FormController@searchListenings')->name('search_form');
-Route::get('/listings/{listing}', 'PageGenerationData@generateListing')->name('ad_id');
+Route::get('/listings/{listing}', 'PageGenerationData@generateListing')->name('listing');
 
