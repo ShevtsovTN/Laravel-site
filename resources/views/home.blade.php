@@ -65,7 +65,7 @@
                 <div class="row">
                     @foreach($listingsData as $listingData)
                         <!-- Single Featured Property -->
-                            <div class="col-12 col-md-6 col-xl-4">
+                            <a href="/listings/{{ $listingData->id }}" class="col-12 col-md-6 col-xl-4">
                                 <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="100ms">
                                     <!-- Property Thumbnail -->
                                     <div class="property-thumb">
@@ -102,7 +102,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                     @endforeach
                 </div>
             </div>

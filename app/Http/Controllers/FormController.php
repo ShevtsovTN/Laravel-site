@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listings;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class FormController extends Controller
 {
     /**
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function searchListenings(Request $request)
     {
@@ -35,14 +37,14 @@ class FormController extends Controller
                 }
             }
             if (!empty($where['where'])) {
-                $listingsData = Listings::select('title', 'description_title', 'amount', 'type', 'cities', 'rooms', 'baths', 'area', 'photo_title', 'categories', 'address')
+                $listingsData = Listings::select('title', 'id', 'description_title', 'amount', 'type', 'cities', 'rooms', 'baths', 'area', 'photo_title', 'categories', 'address')
                     ->where($where['where'])
                     ->whereBetween('area', [$where['whereBetween']['area_from'], $where['whereBetween']['area_to']])
                     ->whereBetween('amount', [$where['whereBetween']['amount_from'] * 1000, $where['whereBetween']['amount_to'] * 1000])
                     ->orderBy('created_at', 'desc')
                     ->paginate(6);
             } else {
-                $listingsData = Listings::select('title', 'description_title', 'amount', 'type', 'cities', 'rooms', 'baths', 'area', 'photo_title', 'categories', 'address')
+                $listingsData = Listings::select('title', 'id', 'description_title', 'amount', 'type', 'cities', 'rooms', 'baths', 'area', 'photo_title', 'categories', 'address')
                     ->whereBetween('area', [$where['whereBetween']['area_from'], $where['whereBetween']['area_to']])
                     ->whereBetween('amount', [$where['whereBetween']['amount_from'] * 1000, $where['whereBetween']['amount_to'] * 1000])
                     ->orderBy('created_at', 'desc')

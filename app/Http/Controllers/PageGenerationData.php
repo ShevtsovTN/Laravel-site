@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Listings;
 use App\Models\Review;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PageGenerationData extends Controller
 {
@@ -13,7 +15,7 @@ class PageGenerationData extends Controller
      * Post page generation method
      *
      * @param Blog $blog
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function generateBlog(Blog $blog)
     {
@@ -23,8 +25,8 @@ class PageGenerationData extends Controller
     /**
      * ListingEn page generation method
      *
-     * @param ListingEn $ad
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param Listings $ad
+     * @return Factory|View
      */
     public function generateListing(Listings $ad)
     {
@@ -34,7 +36,7 @@ class PageGenerationData extends Controller
     /**
      * Review page generation method
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     public function generateIndex()
     {
@@ -43,6 +45,7 @@ class PageGenerationData extends Controller
             ->get();
         $listingsData = Listings::select(
                 'title',
+                'id',
                 'description_title',
                 'amount',
                 'type',
@@ -60,10 +63,14 @@ class PageGenerationData extends Controller
         return view('home', compact('reviews', 'listingsData'));
     }
 
+    /**
+     * @return Factory|View
+     */
     public function generateListings()
     {
         $listingsData = Listings::select(
             'title',
+            'id',
             'description_title',
             'amount',
             'type',
