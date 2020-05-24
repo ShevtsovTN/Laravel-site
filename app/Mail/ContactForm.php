@@ -53,8 +53,9 @@ class ContactForm extends Mailable
         $this->phone = $request->phone;
         $this->email = $request->email;
         $this->message = $request->message;
-        $this->to = [['address' => env('MAIL_TO_ADDRESS'), 'name' => env('MAIL_TO_ADDRESS')]];
+        $this->to = [['address' => env('MAIL_USERNAME'), 'name' => env('MAIL_USERNAME')]];
         $this->subject = 'Сообщение формы обратной связи сайта "' . config('app.name') . '"';
+        //dd($this->to, $this->subject);
     }
 
     /**
