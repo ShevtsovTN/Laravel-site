@@ -25,11 +25,13 @@ class PageGenerationData extends Controller
     /**
      * ListingEn page generation method
      *
-     * @param Listings $ad
+     * @param $id
      * @return Factory|View
      */
-    public function generateListing(Listings $ad)
+    public function generateListing($id)
     {
+        $ad = Listings::find($id);
+        //dd($ad);
         return view('listening.ad', compact('ad'));
     }
 
@@ -46,6 +48,7 @@ class PageGenerationData extends Controller
         $listingsData = Listings::select(
                 'title',
                 'id',
+                'listing_id',
                 'description_title',
                 'amount',
                 'type',
@@ -71,6 +74,7 @@ class PageGenerationData extends Controller
         $listingsData = Listings::select(
             'title',
             'id',
+            'listing_id',
             'description_title',
             'amount',
             'type',
