@@ -11,7 +11,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Styles -->
-    <link href="style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 
 </head>
 <body>
@@ -65,11 +65,11 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="./">@lang('content.layout.menu.0')</a></li>
-                                <li><a href="./about">@lang('content.layout.menu.1')</a></li>
-                                <li><a href="./listings">@lang('content.layout.menu.2')</a></li>
-                                <li><a href="./blog">@lang('content.layout.menu.3')</a></li>
-                                <li><a href="./contact">@lang('content.layout.menu.4')</a></li>
+                                <li><a href="/">@lang('content.layout.menu.0')</a></li>
+                                <li><a href="/about">@lang('content.layout.menu.1')</a></li>
+                                <li><a href="/listings">@lang('content.layout.menu.2')</a></li>
+                                <li><a href="/blog">@lang('content.layout.menu.3')</a></li>
+                                <li><a href="/contact">@lang('content.layout.menu.4')</a></li>
                             </ul>
 
                             <!-- Search Form -->
