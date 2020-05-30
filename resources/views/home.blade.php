@@ -97,7 +97,7 @@
                                             </div>
                                             <div class="space">
                                                 <img src="../img/icons/space.png" alt="">
-                                                <span>{{$listingData->area}} sq ft</span>
+                                                <span>{{$listingData->area}} @lang('content.components_search.units_measuring.0')</span>
                                             </div>
                                         </div>
                                     </div>

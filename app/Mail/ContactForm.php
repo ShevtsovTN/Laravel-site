@@ -71,7 +71,6 @@ class ContactForm extends Mailable
             'email' => $this->email,
             'message' => $this->message
         ];
-        //dd($data);
         return $this->markdown('emails.email', compact('data'));
     }
 }

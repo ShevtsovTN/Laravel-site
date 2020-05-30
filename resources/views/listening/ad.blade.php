@@ -41,11 +41,11 @@
                     <div class="listings-content">
                         <!-- Price -->
                         <div class="list-price">
-                            <p>$945 679</p>
+                            <p>${{ $ad->amount }}</p>
                         </div>
-                        <h5>Town house with Modern Architecture</h5>
-                        <p class="location"><img src="../../img/icons/location.png" alt="">Upper Road 3411, no.34 CA</p>
-                        <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellentesque sit amet tellus blandit. Etiam nec odiomattis effic iturut magna. Pellentesque sit am et tellus blandit. Etiam nec odio vestibul. Etiam nec odio vestibulum est mat tis effic iturut magna. Curabitur rhoncus auctor eleifend. Fusce venenatis diam urna, eu pharetra arcu varius ac. Etiam cursus turpis lectus, id iaculis risus tempor id. Phasellus fringilla nisl sed sem scelerisque, eget aliquam magna vehicula.</p>
+                        <h5>{{ $ad->title }}</h5>
+                        <p class="location"><img src="../../img/icons/location.png" alt="">{{ $ad->address }}</p>
+                        <p>{{ $ad->description }}</p>
                         <!-- Meta -->
                         <div class="property-meta-data d-flex align-items-end">
                             <div class="new-tag">
@@ -53,31 +53,22 @@
                             </div>
                             <div class="bathroom">
                                 <img src="../../img/icons/bathtub.png" alt="">
-                                <span>2</span>
+                                <span>{{ $ad->baths }}</span>
                             </div>
                             <div class="garage">
                                 <img src="../../img/icons/garage.png" alt="">
-                                <span>2</span>
+                                <span>{{ $ad->rooms }}</span>
                             </div>
                             <div class="space">
                                 <img src="../../img/icons/space.png" alt="">
-                                <span>120 sq ft</span>
+                                <span>{{ $ad->area }} @lang('content.components_search.units_measuring.0')</span>
                             </div>
                         </div>
                         <!-- Core Features -->
                         <ul class="listings-core-features d-flex align-items-center">
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Gated Community</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Automatic Sprinklers</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Fireplace</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Window Shutters</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Ocean Views</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Heated Floors</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Heated Floors</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Private Patio</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Window Shutters</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Fireplace</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Beach Access</li>
-                            <li><i class="fa fa-check" aria-hidden="true"></i> Rooftop Terrace</li>
+                            @foreach($ad->options as $option)
+                                <li><i class="fa fa-check" aria-hidden="true"></i> {{ $option }}</li>
+                                @endforeach
                         </ul>
                         <!-- Listings Btn Groups -->
                         <div class="listings-btn-groups">
@@ -98,19 +89,20 @@
                             </div>
                             <div class="realtor--contact-form">
                                 <form action="#" method="post">
+                                    @csrf
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="realtor-name" placeholder="@lang('content.listing.contact_form.0')">
+                                        <input type="text" class="form-control" name="name" id="contact-name" placeholder="@lang('content.contacts.contact_form.0')">
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control" id="realtor-number" placeholder="@lang('content.listing.contact_form.1')">
+                                        <input type="tel" class="form-control" name="phone" id="contact-number" placeholder="@lang('content.contacts.contact_form.1')">
                                     </div>
                                     <div class="form-group">
-                                        <input type="enumber" class="form-control" id="realtor-email" placeholder="@lang('content.listing.contact_form.2')">
+                                        <input type="email" class="form-control" name="email" id="contact-email" placeholder="@lang('content.contacts.contact_form.2')">
                                     </div>
                                     <div class="form-group">
-                                        <textarea name="message" class="form-control" id="realtor-message" cols="30" rows="10" placeholder="@lang('content.listing.contact_form.3')"></textarea>
+                                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="@lang('content.contacts.contact_form.3')"></textarea>
                                     </div>
-                                    <button type="submit" class="btn south-btn">@lang('content.listing.contact_form.4')</button>
+                                    <button type="submit" class="btn south-btn">@lang('content.contacts.contact_form.4')</button>
                                 </form>
                             </div>
                         </div>

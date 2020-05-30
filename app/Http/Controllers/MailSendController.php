@@ -11,10 +11,6 @@ class MailSendController extends Controller
     public function sendMail(ContactFormRequest $request)
     {
         Mail::send(new ContactForm($request));
-        /*$response = [
-            'status' => 'true',
-            'message' => 'Ваше сообщение успешно отправлено.'
-        ];*/
         return view('contact');
     }
 }

@@ -30,8 +30,27 @@ class PageGenerationData extends Controller
      */
     public function generateListing($id)
     {
-        $ad = Listings::find($id);
-        //dd($ad);
+        $data = Listings::select(
+            'listing_id',
+            'title',
+            'description',
+            'address',
+            'amount',
+            'area',
+            'rooms',
+            'baths',
+            'photos',
+            'cities',
+            'categories',
+            'options',
+            'type'
+        )
+            ->where('listing_id', $id)
+            ->get();
+        foreach ($data as $index => $elem) {
+            $elem->options = \GuzzleHttp\json_decode($elem->options, true);
+            $ad = $elem;
+        }
         return view('listening.ad', compact('ad'));
     }
 
