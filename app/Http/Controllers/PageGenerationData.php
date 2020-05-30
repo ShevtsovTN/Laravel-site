@@ -49,6 +49,7 @@ class PageGenerationData extends Controller
             ->get();
         foreach ($data as $index => $elem) {
             $elem->options = \GuzzleHttp\json_decode($elem->options, true);
+            $elem->photos = \GuzzleHttp\json_decode($elem->photos, true);
             $ad = $elem;
         }
         return view('listening.ad', compact('ad'));

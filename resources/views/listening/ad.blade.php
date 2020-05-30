@@ -28,10 +28,9 @@
                 <div class="col-12">
                     <!-- Single Listings Slides -->
                     <div class="single-listings-sliders owl-carousel">
-                        <!-- Single Slide -->
-                        <img src="../../img/bg-img/hero4.jpg" alt="">
-                        <!-- Single Slide -->
-                        <img src="../../img/bg-img/hero5.jpg" alt="">
+                    @foreach($ad->photos as $photo)
+                        <img src="{{ $photo }}" alt="">
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -56,7 +55,7 @@
                                 <span>{{ $ad->baths }}</span>
                             </div>
                             <div class="garage">
-                                <img src="../../img/icons/garage.png" alt="">
+                                <img src="../../img/icons/room.png" alt="">
                                 <span>{{ $ad->rooms }}</span>
                             </div>
                             <div class="space">
