@@ -92,8 +92,10 @@ return [
             5 => 'Store'
         ],
         'offers' => [
-            0 => 'All Offers',
-            1 => 'OFF'
+            0 => 'Sort by default',
+            1 => 'Sort by newest',
+            2 => 'Sort by sales',
+            3 => 'Sort by types'
         ],
         'rooms' => [
             0 => 'Bedrooms',

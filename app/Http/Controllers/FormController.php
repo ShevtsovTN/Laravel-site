@@ -15,6 +15,7 @@ class FormController extends Controller
      */
     public function searchListenings(Request $request)
     {
+        $sorting = 'created_at';
         if (!empty($request['_token'])) {
             $where = ['where' => [], 'whereBetween' => []];
             foreach ($request->all() as $index => $item) {
@@ -26,6 +27,10 @@ class FormController extends Controller
                         $where['whereBetween'] = array_merge($where['whereBetween'], [$index => $item]);
                         break;
                     case '_token':
+                        break;
+                    case 'sorting':
+                        $sorting = $item == 2? 'amount': $sorting;
+                        $sorting = $item == 3? 'type': $sorting;
                         break;
                     default:
                         if ($item != '0') {
@@ -41,13 +46,13 @@ class FormController extends Controller
                     ->where($where['where'])
                     ->whereBetween('area', [$where['whereBetween']['area_from'], $where['whereBetween']['area_to']])
                     ->whereBetween('amount', [$where['whereBetween']['amount_from'] * 1000, $where['whereBetween']['amount_to'] * 1000])
-                    ->orderBy('created_at', 'desc')
+                    ->orderBy($sorting, 'desc')
                     ->paginate(6);
             } else {
                 $listingsData = Listings::select('title', 'id', 'listing_id', 'description_title', 'amount', 'type', 'cities', 'rooms', 'baths', 'area', 'photo_title', 'categories', 'address')
                     ->whereBetween('area', [$where['whereBetween']['area_from'], $where['whereBetween']['area_to']])
                     ->whereBetween('amount', [$where['whereBetween']['amount_from'] * 1000, $where['whereBetween']['amount_to'] * 1000])
-                    ->orderBy('created_at', 'desc')
+                    ->orderBy($sorting, 'desc')
                     ->paginate(6);
             }
 

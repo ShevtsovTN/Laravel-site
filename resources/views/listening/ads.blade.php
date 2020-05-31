@@ -24,7 +24,7 @@
     <!-- ##### ListingEn Content Wrapper Area Start ##### -->
     <section class="listings-content-wrapper section-padding-100">
         <div class="container">
-            <div class="row">
+        <!--<div class="row">
                 <div class="col-12">
                     <div class="listings-top-meta d-flex justify-content-between mb-100">
                         <div class="view-area d-flex align-items-center">
@@ -34,22 +34,21 @@
                         </div>
                         <div class="order-by-area d-flex align-items-center">
                             <span class="mr-15">@lang('content.listings.1')</span>
-                            <select>
-                                <option selected>@lang('content.listings.2')</option>
-                                <option value="1">@lang('content.listings.3')</option>
-                                <option value="2">@lang('content.listings.4')</option>
-                                <option value="3">@lang('content.listings.5')</option>
-                                <option value="3">@lang('content.listings.6')</option>
+                            <select class="sort-options">
+                                <option class="option" value="0" selected>@lang('content.listings.2')</option>
+                                <option class="option" value="1">@lang('content.listings.3')</option>
+                                <option class="option" value="2">@lang('content.listings.4')</option>
+                                <option class="option" value="3">@lang('content.listings.5')</option>
                             </select>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
 
             <div class="row">
             @foreach($listingsData as $listingData)
                 <!-- Single Featured Property -->
-                    <a href="{{ route('listing', $listingData->listing_id) }}" class="col-12 col-md-6 col-xl-4">
+                    <a href="{{ route('listing', $listingData->listing_id) }}" data-value="{{ $listingData->amount }}" data-type="{{ $listingData->type }}" data-created="{{ strtotime($listingData->created_at) }}" class="listing col-12 col-md-6 col-xl-4">
                         <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="100ms">
                             <!-- Property Thumbnail -->
                             <div class="property-thumb">

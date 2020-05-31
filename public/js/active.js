@@ -188,4 +188,7 @@
 
     // :: Slider Range Data to Input
 
+
+
+
 })(jQuery);

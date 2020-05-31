@@ -117,7 +117,7 @@
                         <div class="cta-content text-center">
                             <h2 class="wow fadeInUp" data-wow-delay="300ms">@lang('content.home.action_area.0')</h2>
                             <h6 class="wow fadeInUp" data-wow-delay="400ms">@lang('content.home.action_area.1')</h6>
-                            <a href="#" class="btn south-btn mt-50 wow fadeInUp" data-wow-delay="500ms">@lang('content.home.action_area.2')</a>
+                            <a href="/listings" class="btn south-btn mt-50 wow fadeInUp" data-wow-delay="500ms">@lang('content.home.action_area.2')</a>
                         </div>
                     </div>
                 </div>

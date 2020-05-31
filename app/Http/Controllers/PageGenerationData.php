@@ -95,6 +95,7 @@ class PageGenerationData extends Controller
             'title',
             'id',
             'listing_id',
+            'created_at',
             'description_title',
             'amount',
             'type',
