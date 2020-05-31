@@ -23,7 +23,27 @@ class PageGenerationData extends Controller
     }
 
     /**
-     * ListingEn page generation method
+     * Admin page generation method
+     *
+     * @return Factory|View
+     */
+    public function generateAdmin()
+    {
+        return view('admin.layout');
+    }
+
+    /**
+     * Admin Listings page generation method
+     *
+     *
+     */
+    public function generateAdminListings()
+    {
+        return view('admin.ads');
+    }
+
+    /**
+     * Listing page generation method
      *
      * @param $id
      * @return Factory|View
