@@ -48,7 +48,9 @@
             <div class="row">
             @foreach($listingsData as $listingData)
                 <!-- Single Featured Property -->
-                    <a href="{{ route('listing', $listingData->listing_id) }}" data-value="{{ $listingData->amount }}" data-type="{{ $listingData->type }}" data-created="{{ strtotime($listingData->created_at) }}" class="listing col-12 col-md-6 col-xl-4">
+                    <a href="{{ route('listing', $listingData->listing_id) }}" data-value="{{ $listingData->amount }}"
+                       data-type="{{ $listingData->type }}" data-created="{{ strtotime($listingData->created_at) }}"
+                       class="listing col-12 col-md-6 col-xl-4">
                         <div class="single-featured-property mb-50 wow fadeInUp" data-wow-delay="100ms">
                             <!-- Property Thumbnail -->
                             <div class="property-thumb">
@@ -64,7 +66,8 @@
                             <!-- Property Content -->
                             <div class="property-content">
                                 <h5>{{$listingData->categories}} in {{$listingData->cities}}</h5>
-                                <p class="location"><img src="../img/icons/location.png" alt="">{{$listingData->address}}</p>
+                                <p class="location"><img src="../img/icons/location.png"
+                                                         alt="">{{$listingData->address}}</p>
                                 <p>{{$listingData->description_title}}</p>
                                 <div class="property-meta-data d-flex align-items-end justify-content-between">
                                     <div class="new-tag">
@@ -86,7 +89,7 @@
                             </div>
                         </div>
                     </a>
-                @endforeach
+            @endforeach
             </div>
 
             <div class="row">
