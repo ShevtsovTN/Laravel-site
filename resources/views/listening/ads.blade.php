@@ -97,7 +97,13 @@
                     <div class="south-pagination d-flex justify-content-end">
                         <nav aria-label="Page navigation">
                             <div class="pagination">
-                                {{$listingsData->onEachSide(1)->links()}}
+                                {{$listingsData->onEachSide(1)->appends([
+                                'sorting' => $sorting?? '',
+                                'area_from' => $area_from?? '',
+                                'area_to' => $area_to?? '',
+                                'amount_from' => $amount_from?? '',
+                                'amount_to' => $amount_to?? ''
+                                ])->links()}}
                             </div>
                         </nav>
                     </div>

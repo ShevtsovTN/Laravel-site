@@ -17,9 +17,9 @@ class FormController extends Controller
     public function searchListenings(Request $request)
     {
 
-        $sorting = '';
+        $sorting = $request->query('sorting')?? '';
         $where = ['where' => [], 'whereBetween' => []];
-        foreach ($request->all() as $index => $item) {
+        foreach ($request->input() as $index => $item) {
             switch ($index) {
                 case 'amount_to':
                 case 'amount_from':
@@ -28,9 +28,10 @@ class FormController extends Controller
                     $where['whereBetween'] = array_merge($where['whereBetween'], [$index => $item]);
                     break;
                 case '_token':
+                case 'page':
                     break;
                 case 'sorting':
-                    $sorting = $item == 2 ? 'amount' : ($item == 3 ? 'type' : 'created_at');
+                    $sorting = $item == 2 ? 'amount' : ($item == 3 ? 'type' : $sorting);
                     break;
                 default:
                     if ($item != '0') {
@@ -55,6 +56,17 @@ class FormController extends Controller
                 ->orderBy($sorting, 'desc')
                 ->paginate(6);
         }
-        return view('listening.ads', compact('listingsData'));
+        $area_from = $request->query('area_from')?? $where['whereBetween']['area_from'];
+        $area_to = $request->query('area_to')?? $where['whereBetween']['area_to'];
+        $amount_from = $request->query('amount_from')?? $where['whereBetween']['amount_from'];
+        $amount_to = $request->query('amount_to')?? $where['whereBetween']['amount_to'];
+
+        return view('listening.ads', compact(
+            'listingsData',
+            'sorting',
+            'area_from',
+            'area_to',
+            'amount_from',
+            'amount_to'));
     }
 }
