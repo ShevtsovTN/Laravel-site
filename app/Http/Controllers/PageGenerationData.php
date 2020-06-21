@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Listings;
 use App\Models\Review;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\View;
 
@@ -106,51 +107,33 @@ class PageGenerationData extends Controller
     }
 
     /**
-     * @param string $sorting
-     * @param array $where
      * @return Factory|View
      */
-    public static function generateListings(string $sorting = '', array $where = [])
+    public static function generateListings()
     {
-        //dd($where);
-        if (empty($where) && empty($sorting)) {
-            $listingsData = Listings::select(
-                'title',
-                'id',
-                'listing_id',
-                'created_at',
-                'description_title',
-                'amount',
-                'type',
-                'cities',
-                'rooms',
-                'baths',
-                'area',
-                'photo_title',
-                'categories',
-                'address'
-            )
-                ->orderBy('created_at', 'desc')
-                ->paginate(6);
-        } else {
-            if (!empty($where['where'])) {
-                $listingsData = (new Listings)->select('title', 'id', 'listing_id', 'description_title', 'amount', 'type', 'cities', 'rooms', 'baths', 'area', 'photo_title', 'categories', 'address')
-                    ->where($where['where'])
-                    ->whereBetween('area', [$where['whereBetween']['area_from'], $where['whereBetween']['area_to']])
-                    ->whereBetween('amount', [$where['whereBetween']['amount_from'] * 1000, $where['whereBetween']['amount_to'] * 1000])
-                    ->orderBy($sorting, 'desc')
-                    ->paginate(6);
-            } else {
-                $listingsData = (new Listings)->select('title', 'id', 'listing_id', 'description_title', 'amount', 'type', 'cities', 'rooms', 'baths', 'area', 'photo_title', 'categories', 'address')
-                    ->whereBetween('area', [$where['whereBetween']['area_from'], $where['whereBetween']['area_to']])
-                    ->whereBetween('amount', [$where['whereBetween']['amount_from'] * 1000, $where['whereBetween']['amount_to'] * 1000])
-                    ->orderBy($sorting, 'desc')
-                    ->paginate(6);
-            }
-        }
-        //dd($listingsData);
+        $listingsData = Listings::select(
+            'title',
+            'id',
+            'listing_id',
+            'created_at',
+            'description_title',
+            'amount',
+            'type',
+            'cities',
+            'rooms',
+            'baths',
+            'area',
+            'photo_title',
+            'categories',
+            'address'
+        )
+            ->orderBy('created_at', 'desc')
+            ->paginate(6);
         return view('listening.ads', compact('listingsData'));
+
     }
+
+
 
     public function generateContacts()
     {

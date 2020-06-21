@@ -24,18 +24,18 @@
     <!-- ##### ListingEn Content Wrapper Area Start ##### -->
     <section class="listings-content-wrapper section-padding-100">
         <div class="container">
-        <!--<div class="row">
+        <div class="row">
                 <div class="col-12">
                     <div class="listings-top-meta d-flex justify-content-between mb-100">
-                        <div class="view-area d-flex align-items-center">
+                        <!--<div class="view-area d-flex align-items-center">
                             <span>@lang('content.listings.0')</span>
                             <div class="grid_view ml-15"><a href="#" class="active"><i class="fa fa-th" aria-hidden="true"></i></a></div>
                             <div class="list_view ml-15"><a href="#"><i class="fa fa-th-list" aria-hidden="true"></i></a></div>
-                        </div>
+                        </div>-->
                         <div class="order-by-area d-flex align-items-center">
                             <span class="mr-15">@lang('content.listings.1')</span>
                             <select class="sort-options">
-                                <option class="option" value="0" selected>@lang('content.listings.2')</option>
+                                <option class="option" value="0">@lang('content.listings.2')</option>
                                 <option class="option" value="1">@lang('content.listings.3')</option>
                                 <option class="option" value="2">@lang('content.listings.4')</option>
                                 <option class="option" value="3">@lang('content.listings.5')</option>
@@ -43,9 +43,9 @@
                         </div>
                     </div>
                 </div>
-            </div>-->
+            </div>
 
-            <div class="row">
+            <div class="row" id="listings">
             @foreach($listingsData as $listingData)
                 <!-- Single Featured Property -->
                     <a href="{{ route('listing', $listingData->listing_id) }}" data-value="{{ $listingData->amount }}"
@@ -65,7 +65,7 @@
                             </div>
                             <!-- Property Content -->
                             <div class="property-content">
-                                <h5>{{$listingData->categories}} in {{$listingData->cities}}</h5>
+                                <h5>{{$listingData->categories}} {{$listingData->cities}}</h5>
                                 <p class="location"><img src="../img/icons/location.png"
                                                          alt="">{{$listingData->address}}</p>
                                 <p>{{$listingData->description_title}}</p>
@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="space">
                                         <img src="../img/icons/space.png" alt="">
-                                        <span>{{$listingData->area}} sq ft</span>
+                                        <span>{{$listingData->area}} @lang('content.components_search.units_measuring.0')</span>
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                     <div class="south-pagination d-flex justify-content-end">
                         <nav aria-label="Page navigation">
                             <div class="pagination">
-                                {{$listingsData->links()}}
+                                {{$listingsData->onEachSide(1)->links()}}
                             </div>
                         </nav>
                     </div>

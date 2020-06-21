@@ -49,6 +49,10 @@
         $('select').niceSelect();
     }
 
+    // Sorting Code
+    //let select = document.querySelectorAll('.option');
+    //console.log(select);
+
     // :: Owl Carousel Active Code
     if ($.fn.owlCarousel) {
 

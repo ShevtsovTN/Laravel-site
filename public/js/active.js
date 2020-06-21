@@ -1,7 +1,7 @@
 (function ($) {
     'use strict';
 
-    var $window = $(window);
+    let $window = $(window);
 
     // :: Preloader Active Code
     $window.on('load', function () {
@@ -11,8 +11,8 @@
     });
 
     // :: Search Form Active
-    var searchbtnI = $(".searchbtn i");
-    var searchbtn = $(".searchbtn");
+    let searchbtnI = $(".searchbtn i");
+    let searchbtn = $(".searchbtn");
 
     searchbtnI.addClass('fa-search');
     searchbtn.on('click', function () {
@@ -47,12 +47,55 @@
     // :: Nice Select Active Code
     if ($.fn.niceSelect) {
         $('select').niceSelect();
+        /*$('.list .option').on('click', function(){
+            //console.log(this.attributes['data-value'].value);
+            let value = this.attributes['data-value'].value;
+            let parent = document.querySelector('#listings');
+            let itemsArray = [];
+            let nodeListListening = document.querySelectorAll('.listing');
+            for (let i = 0; i < nodeListListening.length; i++) {
+                itemsArray.push(parent.removeChild(nodeListListening[i]));
+            }
+            switch (value) {
+                case '0':
+                    for (let i = 0; i < objListing.length; i++) {
+                        console.log(objListing[i]);
+                    }
+                    break;
+                case '1':
+                    for (let i = 0; i < objListing.length; i++) {
+                        console.log(objListing[i]);
+                    }
+                    break;
+                case '2':
+                    // nodeListListening.attributes['data-value'].value
+                    itemsArray.sort(function(nodeA, nodeB) {
+                        let numberA = nodeA.attributes['data-value'].value;
+                        let numberB = nodeB.attributes['data-value'].value;
+                        if (numberA < numberB) return 1;
+                        if (numberA > numberB) return -1;
+                        return 0;
+                    })
+                        .forEach(function(node) {
+                            parent.appendChild(node)
+                        });
+                    console.log(parent);
+                    break;
+                case '3':
+                    for (let i = 0; i < objListing.length; i++) {
+                        console.log(objListing[i]);
+                    }
+                    break;
+            }
+        });*/
     }
+    // Sorting Code
+
 
     // :: Owl Carousel Active Code
     if ($.fn.owlCarousel) {
 
-        var welcomeSlide = $('.hero-slides');
+        let welcomeSlide = $('.hero-slides');
 
         welcomeSlide.owlCarousel({
             items: 1,
@@ -67,36 +110,36 @@
         });
 
         welcomeSlide.on('translate.owl.carousel', function () {
-            var slideLayer = $("[data-animation]");
+            let slideLayer = $("[data-animation]");
             slideLayer.each(function () {
-                var anim_name = $(this).data('animation');
+                let anim_name = $(this).data('animation');
                 $(this).removeClass('animated ' + anim_name).css('opacity', '0');
             });
         });
 
         welcomeSlide.on('translated.owl.carousel', function () {
-            var slideLayer = welcomeSlide.find('.owl-item.active').find("[data-animation]");
+            let slideLayer = welcomeSlide.find('.owl-item.active').find("[data-animation]");
             slideLayer.each(function () {
-                var anim_name = $(this).data('animation');
+                let anim_name = $(this).data('animation');
                 $(this).addClass('animated ' + anim_name).css('opacity', '1');
             });
         });
 
         $("[data-delay]").each(function () {
-            var anim_del = $(this).data('delay');
+            let anim_del = $(this).data('delay');
             $(this).css('animation-delay', anim_del);
         });
 
         $("[data-duration]").each(function () {
-            var anim_dur = $(this).data('duration');
+            let anim_dur = $(this).data('duration');
             $(this).css('animation-duration', anim_dur);
         });
 
         // Dots Showing Number
-        var dot = $('.hero-slides .owl-dot');
+        let dot = $('.hero-slides .owl-dot');
 
         dot.each(function () {
-            var dotnumber = $(this).index() + 1;
+            let dotnumber = $(this).index() + 1;
             if (dotnumber <= 9) {
                 $(this).html('0').append(dotnumber);
             } else {
@@ -166,12 +209,12 @@
 
     // :: Slider Range
     $('.slider-range-price').each(function () {
-        var min = jQuery(this).data('min');
-        var max = jQuery(this).data('max');
-        var unit = jQuery(this).data('unit');
-        var value_min = jQuery(this).data('value-min');
-        var value_max = jQuery(this).data('value-max');
-        var t = $(this);
+        let min = jQuery(this).data('min');
+        let max = jQuery(this).data('max');
+        let unit = jQuery(this).data('unit');
+        let value_min = jQuery(this).data('value-min');
+        let value_max = jQuery(this).data('value-max');
+        let t = $(this);
         $(this).slider({
             range: true,
             min: min,
